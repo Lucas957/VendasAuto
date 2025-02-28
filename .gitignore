@@ -1,0 +1,38 @@
+# Dependências
+node_modules/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.swp
+*.swo
+
+# Diretório de build
+/dist
+/build
+
+# Cache
+.cache/
+.npm/
+
+# Arquivos do VS Code
+.vscode/
+*.code-workspace
+
+# Arquivos do Puppeteer
+.wwebjs_auth/
+.wwebjs_cache/ 
