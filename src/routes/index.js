@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { PrismaClient } = require('@prisma/client');
 const SaleController = require('../controllers/SaleController');
+const ProductController = require('../controllers/ProductController');
 
 const prisma = new PrismaClient();
 
@@ -44,6 +45,7 @@ router.get('/clients', async (req, res) => {
 
 // Rotas de vendas
 router.post('/sales', SaleController.create.bind(SaleController));
+router.get('/sales', SaleController.list);
 
 // Rotas de compras
 router.get('/bought', async (req, res) => {
@@ -73,5 +75,12 @@ router.patch('/bought/:id/pay', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
+
+// Rotas de produtos
+router.post('/products', ProductController.create);
+router.get('/products', ProductController.list);
+router.get('/products/:id', ProductController.getById);
+router.put('/products/:id', ProductController.update);
+router.delete('/products/:id', ProductController.delete);
 
 module.exports = router; 

@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -5,18 +8,6 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
-}
-
-model bought {
-  id        Int      @id @default(autoincrement())
-  date_sell DateTime @default(now())
-  date_pay  DateTime
-  client_id Int
-  paid      Boolean  @default(false)
-  value     Float
-  client    client   @relation(fields: [client_id], references: [id], map: "Bought_client_id_fkey")
-
-  @@index([client_id], map: "Bought_client_id_fkey")
 }
 
 model client {
@@ -27,4 +18,41 @@ model client {
   credit Float    @default(0)
   wpp    String
   bought bought[]
+}
+
+model Product {
+  id          Int           @id @default(autoincrement())
+  name        String
+  price       Float
+  description String?
+  stock       Int          @default(0)
+  sales       SaleProduct[]
+  created_at  DateTime     @default(now())
+  updated_at  DateTime     @updatedAt
+}
+
+model bought {
+  id         Int           @id @default(autoincrement())
+  date_sell  DateTime      @default(now())
+  date_pay   DateTime
+  client     client        @relation(fields: [client_id], references: [id])
+  client_id  Int
+  paid       Boolean       @default(false)
+  value      Float
+  products   SaleProduct[]
+
+  @@index([client_id])
+}
+
+model SaleProduct {
+  id         Int      @id @default(autoincrement())
+  sale       bought   @relation(fields: [sale_id], references: [id])
+  sale_id    Int
+  product    Product  @relation(fields: [product_id], references: [id])
+  product_id Int
+  quantity   Int
+  price      Float    // Preço no momento da venda
+
+  @@index([sale_id])
+  @@index([product_id])
 }
