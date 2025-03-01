@@ -1,0 +1,1048 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Isaac",
+      "level": "CB",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285865052"
+    },
+    {
+      "id": 2,
+      "name": "Cássio",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559288057455"
+    },
+    {
+      "id": 3,
+      "name": "Ribeiro",
+      "level": "SGT",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559291412721"
+    },
+    {
+      "id": 4,
+      "name": "Abrahão",
+      "level": "SGT",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292287111"
+    },
+    {
+      "id": 5,
+      "name": "Arlen",
+      "level": "SD",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284701206"
+    },
+    {
+      "id": 6,
+      "name": "Arthur Soares",
+      "level": "SGT",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "5521986881583"
+    },
+    {
+      "id": 7,
+      "name": "Balieiro",
+      "level": "CB",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559282521550"
+    },
+    {
+      "id": 8,
+      "name": "Jean",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293996041"
+    },
+    {
+      "id": 9,
+      "name": "Luz",
+      "level": "CB",
+      "course": "mergulhador",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559281346324"
+    },
+    {
+      "id": 10,
+      "name": "Ribeiro",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285421283"
+    },
+    {
+      "id": 11,
+      "name": "Santos",
+      "level": "CB",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285540913"
+    },
+    {
+      "id": 12,
+      "name": "Tetenge",
+      "level": "CB",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285483792"
+    },
+    {
+      "id": 13,
+      "name": "Yury",
+      "level": "CB",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "556281394618"
+    },
+    {
+      "id": 14,
+      "name": "Claiton",
+      "level": "SGT",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "5521967869193"
+    },
+    {
+      "id": 15,
+      "name": "Coqueiro",
+      "level": "SGT",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559282426898"
+    },
+    {
+      "id": 16,
+      "name": "Da Cruz",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559885242175"
+    },
+    {
+      "id": 17,
+      "name": "Dangelo",
+      "level": "SD",
+      "course": "mergulhador",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284620178"
+    },
+    {
+      "id": 18,
+      "name": "Danilo Bargues",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292509981"
+    },
+    {
+      "id": 19,
+      "name": "De Oliveira",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292531405"
+    },
+    {
+      "id": 20,
+      "name": "Divino",
+      "level": "SGT",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284753225"
+    },
+    {
+      "id": 21,
+      "name": "Ênio",
+      "level": "CB",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559294733631"
+    },
+    {
+      "id": 22,
+      "name": "Amos",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292536361"
+    },
+    {
+      "id": 23,
+      "name": "Ferreira",
+      "level": "CAP",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "554188433700"
+    },
+    {
+      "id": 24,
+      "name": "Gralha",
+      "level": "SGT",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284140200"
+    },
+    {
+      "id": 25,
+      "name": "Henrique Silva",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559294690072"
+    },
+    {
+      "id": 26,
+      "name": "Iranildo",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292857106"
+    },
+    {
+      "id": 27,
+      "name": "Jailson",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292277412"
+    },
+    {
+      "id": 28,
+      "name": "Jean Carlo",
+      "level": "STTEN",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285102937"
+    },
+    {
+      "id": 29,
+      "name": "Joas",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559281416508"
+    },
+    {
+      "id": 30,
+      "name": "Kaike",
+      "level": "SGT",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559291927050"
+    },
+    {
+      "id": 31,
+      "name": "Leandro",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285872718"
+    },
+    {
+      "id": 32,
+      "name": "Leandro Maia",
+      "level": "CB",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559295348741"
+    },
+    {
+      "id": 33,
+      "name": "Leitão",
+      "level": "SD",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292327163"
+    },
+    {
+      "id": 34,
+      "name": "Leonardo Pimentel",
+      "level": "SGT",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "5521973166443"
+    },
+    {
+      "id": 35,
+      "name": "Lopes",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293874420"
+    },
+    {
+      "id": 36,
+      "name": "Lopes Nunes",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559291668602"
+    },
+    {
+      "id": 37,
+      "name": "Luis",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284459458"
+    },
+    {
+      "id": 38,
+      "name": "Miranda",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559281155332"
+    },
+    {
+      "id": 39,
+      "name": "Novan",
+      "level": "SGT",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284079400"
+    },
+    {
+      "id": 40,
+      "name": "Rafael",
+      "level": "TEN",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559784222117"
+    },
+    {
+      "id": 41,
+      "name": "Ramos",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293780021"
+    },
+    {
+      "id": 42,
+      "name": "Rhislan",
+      "level": "SGT",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "5521983393496"
+    },
+    {
+      "id": 43,
+      "name": "Rosário",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559294052511"
+    },
+    {
+      "id": 44,
+      "name": "Ruann",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559288481238"
+    },
+    {
+      "id": 45,
+      "name": "Da Silva",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292452813"
+    },
+    {
+      "id": 46,
+      "name": "Fonseca",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284574343"
+    },
+    {
+      "id": 47,
+      "name": "J Lima",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559291998755"
+    },
+    {
+      "id": 48,
+      "name": "L Bastos",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559286385805"
+    },
+    {
+      "id": 49,
+      "name": "Lucas Franco",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293418594"
+    },
+    {
+      "id": 50,
+      "name": "Mozaniel",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559286037643"
+    },
+    {
+      "id": 51,
+      "name": "R santos",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285102963"
+    },
+    {
+      "id": 52,
+      "name": "Renan",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293408007"
+    },
+    {
+      "id": 53,
+      "name": "Vasconcelos",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285503799"
+    },
+    {
+      "id": 54,
+      "name": "Willame",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559292783899"
+    },
+    {
+      "id": 55,
+      "name": "Barthkevihi",
+      "level": "SGT",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "5521991747278"
+    },
+    {
+      "id": 56,
+      "name": "Simões",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284938563"
+    },
+    {
+      "id": 57,
+      "name": "Soares",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559291339749"
+    },
+    {
+      "id": 58,
+      "name": "Rogério Matos",
+      "level": "STTEN",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "553299494908"
+    },
+    {
+      "id": 59,
+      "name": "Elias",
+      "level": "TEN",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559296125618"
+    },
+    {
+      "id": 60,
+      "name": "Moura Torres",
+      "level": "TEN",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "5524981036469"
+    },
+    {
+      "id": 61,
+      "name": "Tuandre",
+      "level": "SGT",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "5521988164419"
+    },
+    {
+      "id": 62,
+      "name": "Filho",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293519533"
+    },
+    {
+      "id": 63,
+      "name": "Jardel",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284526882"
+    },
+    {
+      "id": 64,
+      "name": "Joel",
+      "level": "CB",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284113723"
+    },
+    {
+      "id": 65,
+      "name": "Laborda",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284453219"
+    },
+    {
+      "id": 66,
+      "name": "Leliomar",
+      "level": "CB",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285031750"
+    },
+    {
+      "id": 67,
+      "name": "Cordeiro",
+      "level": "MAJ",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559282101083"
+    },
+    {
+      "id": 68,
+      "name": "Maurício",
+      "level": "SD",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559299638762"
+    },
+    {
+      "id": 69,
+      "name": "Pierre",
+      "level": "CB",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559294925181"
+    },
+    {
+      "id": 70,
+      "name": "Wellison",
+      "level": "SD",
+      "course": "comandos",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559291865469"
+    },
+    {
+      "id": 71,
+      "name": "Temoteo",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293020598"
+    },
+    {
+      "id": 72,
+      "name": "Lima",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293670209"
+    },
+    {
+      "id": 73,
+      "name": "Brito",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559284660293"
+    },
+    {
+      "id": 74,
+      "name": "Sanderson",
+      "level": "SD",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "5521373761346"
+    },
+    {
+      "id": 75,
+      "name": "S. Martins",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559288461987"
+    },
+    {
+      "id": 76,
+      "name": "Cerdeira",
+      "level": "CB",
+      "course": "paraquedista",
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285746534"
+    },
+    {
+      "id": 77,
+      "name": "Chagas",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559293727242"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Coca Lata",
+      "price": 5,
+      "description": "PG",
+      "stock": -17,
+      "created_at": "2025-02-28T22:15:15.454Z",
+      "updated_at": "2025-03-01T15:09:17.286Z"
+    },
+    {
+      "id": 2,
+      "name": "Salgado",
+      "price": 7,
+      "description": "PG",
+      "stock": -4,
+      "created_at": "2025-02-28T22:36:23.152Z",
+      "updated_at": "2025-03-01T14:14:18.608Z"
+    },
+    {
+      "id": 3,
+      "name": "Pizza",
+      "price": 8,
+      "description": "PG",
+      "stock": -4,
+      "created_at": "2025-02-28T22:36:23.152Z",
+      "updated_at": "2025-03-01T15:11:37.162Z"
+    },
+    {
+      "id": 4,
+      "name": "Energético",
+      "price": 14,
+      "description": "PG",
+      "stock": -2,
+      "created_at": "2025-02-28T22:36:23.152Z",
+      "updated_at": "2025-02-28T22:37:09.039Z"
+    },
+    {
+      "id": 5,
+      "name": "Coca Garrafa",
+      "price": 6,
+      "description": "PG",
+      "stock": -3,
+      "created_at": "2025-02-28T22:36:23.152Z",
+      "updated_at": "2025-03-01T15:01:50.162Z"
+    },
+    {
+      "id": 6,
+      "name": "Barra Chocolate Pqn",
+      "price": 6,
+      "description": "PG",
+      "stock": -5,
+      "created_at": "2025-02-28T22:36:23.152Z",
+      "updated_at": "2025-03-01T15:01:50.183Z"
+    },
+    {
+      "id": 7,
+      "name": "Barra Chocolate Grande",
+      "price": 9,
+      "description": "PG",
+      "stock": -2,
+      "created_at": "2025-02-28T22:36:23.152Z",
+      "updated_at": "2025-02-28T23:53:50.254Z"
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "date_sell": "2025-02-28T22:19:53.293Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 10,
+      "products": [
+        {
+          "id": 1,
+          "sale_id": 1,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date_sell": "2025-02-28T22:22:30.375Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 5,
+      "products": [
+        {
+          "id": 2,
+          "sale_id": 2,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date_sell": "2025-02-28T22:24:26.902Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 5,
+      "products": [
+        {
+          "id": 3,
+          "sale_id": 3,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date_sell": "2025-02-28T22:25:27.127Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 15,
+      "products": [
+        {
+          "id": 4,
+          "sale_id": 4,
+          "product_id": 1,
+          "quantity": 3,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "date_sell": "2025-02-28T22:26:08.125Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 10,
+      "products": [
+        {
+          "id": 5,
+          "sale_id": 5,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "date_sell": "2025-02-28T22:27:35.427Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 2,
+      "paid": false,
+      "value": 10,
+      "products": [
+        {
+          "id": 6,
+          "sale_id": 6,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "date_sell": "2025-02-28T22:29:36.336Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 3,
+      "paid": false,
+      "value": 10,
+      "products": [
+        {
+          "id": 7,
+          "sale_id": 7,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "date_sell": "2025-02-28T22:37:08.971Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 89,
+      "products": [
+        {
+          "id": 8,
+          "sale_id": 8,
+          "product_id": 7,
+          "quantity": 1,
+          "price": 9
+        },
+        {
+          "id": 9,
+          "sale_id": 8,
+          "product_id": 6,
+          "quantity": 3,
+          "price": 6
+        },
+        {
+          "id": 10,
+          "sale_id": 8,
+          "product_id": 5,
+          "quantity": 1,
+          "price": 6
+        },
+        {
+          "id": 11,
+          "sale_id": 8,
+          "product_id": 4,
+          "quantity": 2,
+          "price": 14
+        },
+        {
+          "id": 12,
+          "sale_id": 8,
+          "product_id": 3,
+          "quantity": 2,
+          "price": 8
+        },
+        {
+          "id": 13,
+          "sale_id": 8,
+          "product_id": 2,
+          "quantity": 1,
+          "price": 7
+        },
+        {
+          "id": 14,
+          "sale_id": 8,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "date_sell": "2025-02-28T23:53:50.213Z",
+      "date_pay": "2025-03-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 23,
+      "products": [
+        {
+          "id": 15,
+          "sale_id": 9,
+          "product_id": 7,
+          "quantity": 1,
+          "price": 9
+        },
+        {
+          "id": 16,
+          "sale_id": 9,
+          "product_id": 2,
+          "quantity": 2,
+          "price": 7
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "date_sell": "2025-03-01T14:14:18.542Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 12,
+      "products": [
+        {
+          "id": 17,
+          "sale_id": 10,
+          "product_id": 2,
+          "quantity": 1,
+          "price": 7
+        },
+        {
+          "id": 18,
+          "sale_id": 10,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "date_sell": "2025-03-01T15:01:50.115Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 24,
+      "products": [
+        {
+          "id": 19,
+          "sale_id": 11,
+          "product_id": 6,
+          "quantity": 2,
+          "price": 6
+        },
+        {
+          "id": 20,
+          "sale_id": 11,
+          "product_id": 5,
+          "quantity": 2,
+          "price": 6
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "date_sell": "2025-03-01T15:09:17.249Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 10,
+      "products": [
+        {
+          "id": 21,
+          "sale_id": 12,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "date_sell": "2025-03-01T15:11:37.121Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": false,
+      "value": 16,
+      "products": [
+        {
+          "id": 22,
+          "sale_id": 13,
+          "product_id": 3,
+          "quantity": 2,
+          "price": 8
+        }
+      ]
+    }
+  ]
+}

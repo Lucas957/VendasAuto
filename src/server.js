@@ -1,17 +1,25 @@
+// Carrega as variáveis de ambiente
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
-const routes = require('./routes');
+const routes = require('./routes/index');
+const whatsappService = require('./services/whatsapp');
 
 const app = express();
 
-// Middleware para processar JSON
+// Configuração do CORS para permitir qualquer origem
 app.use(cors());
 app.use(express.json());
 
 // Usando as rotas
 app.use('/api', routes);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+// Iniciar o servidor
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0'; // Escutar em todas as interfaces de rede
+
+app.listen(PORT, HOST, () => {
+  console.log(`Servidor rodando em http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORT}`);
+  console.log('==================================');
 }); 

@@ -13,11 +13,33 @@ datasource db {
 model client {
   id     Int      @id @default(autoincrement())
   name   String
-  level  String
+  level  Level    @default(SD)
+  course Course?
   debit  Float    @default(0)
   credit Float    @default(0)
   wpp    String
   bought bought[]
+}
+
+enum Level {
+  SD     // Soldado
+  CB     // Cabo
+  SGT    // Sargento
+  STTEN  // Subtenente
+  TEN    // Tenente
+  CAP    // Capitão
+  MAJ    // Major
+  CEL    // Coronel
+}
+
+enum Course {
+  comandos
+  precursor
+  mergulhador
+  paraquedista
+  caatinga
+  montanha
+  inteligente
 }
 
 model Product {
