@@ -189,6 +189,138 @@ router.post('/clients/:id/clear-debt', async (req, res) => {
   }
 });
 
+// Zerar parcialmente o débito do cliente
+router.post('/clients/:id/partial-payment', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { amount, purchaseIds } = req.body;
+    const clientId = parseInt(id);
+    
+    if (!amount && !purchaseIds) {
+      return res.status(400).json({ error: 'É necessário fornecer o valor do pagamento ou os IDs das compras a serem pagas' });
+    }
+
+    // Usar transação para garantir que todas as operações sejam feitas juntas
+    const result = await prisma.$transaction(async (prisma) => {
+      // Verificar se o cliente existe
+      const client = await prisma.client.findUnique({
+        where: { id: clientId },
+        include: { 
+          bought: {
+            where: { paid: false },
+            orderBy: { date_sell: 'asc' }
+          }
+        }
+      });
+
+      if (!client) {
+        throw new Error('Cliente não encontrado');
+      }
+
+      // Se foram fornecidos IDs específicos de compras
+      if (purchaseIds && purchaseIds.length > 0) {
+        // Marcar as compras específicas como pagas
+        await prisma.bought.updateMany({
+          where: {
+            id: { in: purchaseIds.map(id => parseInt(id)) },
+            client_id: clientId,
+            paid: false
+          },
+          data: {
+            paid: true
+          }
+        });
+        
+        // Calcular o valor total das compras pagas
+        const paidPurchases = await prisma.bought.findMany({
+          where: {
+            id: { in: purchaseIds.map(id => parseInt(id)) },
+            client_id: clientId
+          }
+        });
+        
+        const paidAmount = paidPurchases.reduce((total, purchase) => total + purchase.value, 0);
+        
+        // Atualizar o débito do cliente
+        const updatedClient = await prisma.client.update({
+          where: { id: clientId },
+          data: {
+            debit: {
+              decrement: paidAmount
+            }
+          },
+          include: {
+            bought: true
+          }
+        });
+        
+        return {
+          client: updatedClient,
+          paidAmount,
+          paidPurchases
+        };
+      } 
+      // Se foi fornecido um valor de pagamento
+      else if (amount) {
+        const amountValue = parseFloat(amount);
+        let remainingAmount = amountValue;
+        const paidPurchaseIds = [];
+        
+        // Pagar compras do cliente até atingir o valor fornecido
+        for (const purchase of client.bought) {
+          if (remainingAmount <= 0) break;
+          
+          if (purchase.value <= remainingAmount) {
+            // Pode pagar esta compra completamente
+            await prisma.bought.update({
+              where: { id: purchase.id },
+              data: { paid: true }
+            });
+            
+            paidPurchaseIds.push(purchase.id);
+            remainingAmount -= purchase.value;
+          } else {
+            // Não pode pagar esta compra completamente
+            // Neste caso, não marcamos como paga, apenas reduzimos o débito
+            break;
+          }
+        }
+        
+        // Atualizar o débito do cliente
+        const updatedClient = await prisma.client.update({
+          where: { id: clientId },
+          data: {
+            debit: {
+              decrement: amountValue
+            }
+          },
+          include: {
+            bought: true
+          }
+        });
+        
+        return {
+          client: updatedClient,
+          paidAmount: amountValue,
+          paidPurchaseIds
+        };
+      }
+    });
+
+    res.json(result);
+  } catch (error) {
+    console.error('Erro detalhado ao processar pagamento parcial:', error);
+    if (error.message === 'Cliente não encontrado') {
+      res.status(404).json({ error: error.message });
+    } else {
+      res.status(500).json({ 
+        error: 'Erro ao processar pagamento parcial',
+        details: error.message 
+      });
+    }
+  }
+});
+
 // Rotas de produtos
 router.post('/products', ProductController.create);
 router.get('/products', ProductController.list);
@@ -200,7 +332,7 @@ router.delete('/products/:id', ProductController.delete);
 router.get('/clients/:id/purchases', async (req, res) => {
   try {
     const { id } = req.params;
-    const { startDate, endDate } = req.query;
+    const { startDate, endDate, paid } = req.query;
     
     // Converter strings de data para objetos Date
     const start = startDate ? new Date(startDate) : new Date(0); // Se não fornecido, usa data mínima
@@ -209,17 +341,25 @@ router.get('/clients/:id/purchases', async (req, res) => {
     // Garantir que end seja o final do dia
     end.setHours(23, 59, 59, 999);
     
+    // Construir o filtro de consulta
+    const whereClause = {
+      client_id: Number(id),
+      date_sell: {
+        gte: start,
+        lte: end
+      }
+    };
+    
+    // Adicionar filtro de status de pagamento se fornecido
+    if (paid !== undefined) {
+      whereClause.paid = paid === 'true';
+    }
+    
     // Buscar compras do cliente no período especificado
     const purchases = await prisma.bought.findMany({
-      where: {
-        client_id: Number(id),
-        createdAt: {
-          gte: start,
-          lte: end
-        }
-      },
+      where: whereClause,
       orderBy: {
-        createdAt: 'desc'
+        date_sell: 'desc'
       },
       include: {
         client: true
