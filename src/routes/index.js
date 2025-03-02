@@ -196,4 +196,51 @@ router.get('/products/:id', ProductController.getById);
 router.put('/products/:id', ProductController.update);
 router.delete('/products/:id', ProductController.delete);
 
+// Nova rota para buscar compras de um cliente por período
+router.get('/clients/:id/purchases', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { startDate, endDate } = req.query;
+    
+    // Converter strings de data para objetos Date
+    const start = startDate ? new Date(startDate) : new Date(0); // Se não fornecido, usa data mínima
+    const end = endDate ? new Date(endDate) : new Date(); // Se não fornecido, usa data atual
+    
+    // Garantir que end seja o final do dia
+    end.setHours(23, 59, 59, 999);
+    
+    // Buscar compras do cliente no período especificado
+    const purchases = await prisma.bought.findMany({
+      where: {
+        client_id: Number(id),
+        createdAt: {
+          gte: start,
+          lte: end
+        }
+      },
+      orderBy: {
+        createdAt: 'desc'
+      },
+      include: {
+        client: true
+      }
+    });
+    
+    // Calcular o valor total das compras
+    const totalValue = purchases.reduce((sum, purchase) => sum + purchase.value, 0);
+    
+    res.json({
+      purchases,
+      totalValue,
+      period: {
+        start: start.toISOString(),
+        end: end.toISOString()
+      }
+    });
+  } catch (error) {
+    console.error('Erro ao buscar compras por período:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router; 

@@ -48,6 +48,13 @@ export default function Gerenciar() {
   const [messageVisible, setMessageVisible] = useState(false);
   const [messageOpacity, setMessageOpacity] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
+  // Novos estados para o filtro de período
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [clientPurchases, setClientPurchases] = useState([]);
+  const [totalPurchaseValue, setTotalPurchaseValue] = useState(0);
+  const [showPurchasesModal, setShowPurchasesModal] = useState(false);
+  const [isLoadingPurchases, setIsLoadingPurchases] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [editingClient, setEditingClient] = useState(null);
@@ -175,6 +182,30 @@ export default function Gerenciar() {
     } catch (error) {
       console.error('Erro ao atualizar cliente:', error);
       setError(error);
+    }
+  };
+
+  // Nova função para buscar compras por período
+  const fetchClientPurchases = async (clientId) => {
+    setIsLoadingPurchases(true);
+    try {
+      // Formatar as datas para a API
+      const queryParams = new URLSearchParams();
+      if (startDate) queryParams.append('startDate', startDate);
+      if (endDate) queryParams.append('endDate', endDate);
+      
+      const response = await axios.get(
+        `${API_URL}/api/clients/${clientId}/purchases?${queryParams.toString()}`
+      );
+      
+      setClientPurchases(response.data.purchases);
+      setTotalPurchaseValue(response.data.totalValue);
+      setShowPurchasesModal(true);
+    } catch (error) {
+      console.error('Erro ao buscar compras:', error);
+      alert('Erro ao buscar compras do cliente');
+    } finally {
+      setIsLoadingPurchases(false);
     }
   };
 
@@ -380,12 +411,109 @@ export default function Gerenciar() {
                   >
                     <span className="mr-1">🗑️</span> Zerar Débito
                   </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      fetchClientPurchases(client.id);
+                    }}
+                    className="bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600 text-sm flex items-center"
+                  >
+                    <span className="mr-1">📊</span> Ver Compras
+                  </button>
                 </div>
               )}
             </div>
           ))}
         </div>
       </div>
+
+      {/* Modal de Compras por Período */}
+      {showPurchasesModal && selectedClient && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] overflow-auto" css={scrollbarStyle}>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold">Compras de {selectedClient.name}</h2>
+              <button 
+                onClick={() => setShowPurchasesModal(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="mb-4 flex flex-wrap gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Data Inicial</label>
+                <input 
+                  type="date" 
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
+                  className="p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Data Final</label>
+                <input 
+                  type="date" 
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
+                  className="p-2 border rounded"
+                />
+              </div>
+              <div className="flex items-end">
+                <button
+                  onClick={() => fetchClientPurchases(selectedClient.id)}
+                  disabled={isLoadingPurchases}
+                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-blue-300"
+                >
+                  {isLoadingPurchases ? 'Carregando...' : 'Filtrar'}
+                </button>
+              </div>
+            </div>
+            
+            <div className="mb-4">
+              <p className="font-bold text-lg">Total no período: R$ {totalPurchaseValue.toFixed(2)}</p>
+            </div>
+            
+            {clientPurchases.length > 0 ? (
+              <div className="overflow-x-auto">
+                <table className="min-w-full bg-white border">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="py-2 px-4 border text-left">Data</th>
+                      <th className="py-2 px-4 border text-left">Valor</th>
+                      <th className="py-2 px-4 border text-left">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {clientPurchases.map((purchase) => (
+                      <tr key={purchase.id} className="hover:bg-gray-50">
+                        <td className="py-2 px-4 border">
+                          {new Date(purchase.createdAt).toLocaleDateString('pt-BR')}
+                        </td>
+                        <td className="py-2 px-4 border">
+                          R$ {purchase.value.toFixed(2)}
+                        </td>
+                        <td className="py-2 px-4 border">
+                          {purchase.paid ? (
+                            <span className="text-green-500 font-medium">Pago</span>
+                          ) : (
+                            <span className="text-red-500 font-medium">Pendente</span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="text-center text-gray-500 my-4">
+                {isLoadingPurchases ? 'Carregando compras...' : 'Nenhuma compra encontrada no período selecionado.'}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 } 
