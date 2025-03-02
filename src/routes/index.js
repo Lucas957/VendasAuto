@@ -27,14 +27,15 @@ router.get('/', (req, res) => {
 // Rotas de clientes
 router.post('/clients', async (req, res) => {
   try {
-    const { name, level, wpp, credit = 0, debit = 0 } = req.body;
+    const { name, level, wpp, credit = 0, debit = 0, course = null } = req.body;
     const client = await prisma.client.create({
       data: {
         name,
         level,
         wpp,
         credit,
-        debit
+        debit,
+        course
       },
     });
     res.json(client);
@@ -380,6 +381,69 @@ router.get('/clients/:id/purchases', async (req, res) => {
   } catch (error) {
     console.error('Erro ao buscar compras por período:', error);
     res.status(500).json({ error: error.message });
+  }
+});
+
+// Rota para excluir um cliente
+router.delete('/clients/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const clientId = parseInt(id);
+
+    // Usar transação para garantir que todas as operações sejam feitas juntas
+    const result = await prisma.$transaction(async (prisma) => {
+      // Verificar se o cliente existe
+      const client = await prisma.client.findUnique({
+        where: { id: clientId },
+        include: { bought: true }
+      });
+
+      if (!client) {
+        throw new Error('Cliente não encontrado');
+      }
+
+      // Obter IDs de todas as compras do cliente
+      const saleIds = client.bought.map(purchase => purchase.id);
+
+      // Excluir registros relacionados na tabela SaleProduct
+      if (saleIds.length > 0) {
+        await prisma.saleProduct.deleteMany({
+          where: {
+            sale_id: {
+              in: saleIds
+            }
+          }
+        });
+      }
+
+      // Excluir todas as compras do cliente
+      await prisma.bought.deleteMany({
+        where: {
+          client_id: clientId
+        }
+      });
+
+      // Excluir o cliente
+      await prisma.client.delete({
+        where: {
+          id: clientId
+        }
+      });
+
+      return { success: true, message: 'Cliente excluído com sucesso' };
+    });
+
+    res.json(result);
+  } catch (error) {
+    console.error('Erro detalhado ao excluir cliente:', error);
+    if (error.message === 'Cliente não encontrado') {
+      res.status(404).json({ error: error.message });
+    } else {
+      res.status(500).json({ 
+        error: 'Erro ao excluir cliente',
+        details: error.message 
+      });
+    }
   }
 });
 
