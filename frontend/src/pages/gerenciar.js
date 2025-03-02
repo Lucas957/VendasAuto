@@ -246,41 +246,73 @@ export default function Gerenciar() {
 
   const updateClient = async (updatedClient) => {
     try {
-      // Formatar o número de WhatsApp para o padrão aceito pela biblioteca whatsapp-web.js
+      console.log('Iniciando atualização do cliente:', updatedClient);
+      
+      // Formatar o número de WhatsApp
       let formattedPhone = '';
       if (updatedClient.phone) {
-        // Remover todos os caracteres não numéricos
         const phoneDigits = updatedClient.phone.replace(/\D/g, '');
         
-        // Verificar se o número tem pelo menos 10 dígitos (DDD + número)
         if (phoneDigits.length < 10) {
           alert('O número de telefone deve ter pelo menos 10 dígitos (DDD + número).');
           return;
         }
         
-        // Formatar como 55DDNNNNNNNNN (formato para o Brasil)
-        // Se o número já começar com 55, não adicionar novamente
         if (phoneDigits.startsWith('55') && phoneDigits.length >= 12) {
           formattedPhone = phoneDigits;
         } else {
-          // Adicionar o código do país (55 para Brasil)
           formattedPhone = `55${phoneDigits}`;
         }
       }
-
-      // Atualizar o cliente com o telefone formatado
-      const clientToUpdate = {
-        ...updatedClient,
-        wpp: formattedPhone
+      
+      // Encontrar o cliente atual para obter credit e debit
+      const currentClient = clients.find(c => c.id === updatedClient.id);
+      if (!currentClient) {
+        alert('Erro: Cliente não encontrado');
+        return;
+      }
+      
+      // Preparar dados para envio
+      const dataToSend = {
+        name: updatedClient.name,
+        level: updatedClient.level,
+        wpp: formattedPhone,
+        course: updatedClient.course === '' ? null : updatedClient.course,
+        arma: updatedClient.arma || 'padrao',
+        credit: currentClient.credit || 0,
+        debit: currentClient.debit || 0
       };
-
-      await axios.put(`${API_URL}/api/clients/${updatedClient.id}`, clientToUpdate);
-      loadClients(); // Recarregar a lista após atualizar o cliente
+      
+      console.log('Dados a serem enviados:', dataToSend);
+      console.log('URL da requisição:', `${API_URL}/api/clients/${updatedClient.id}`);
+      
+      // Fazer a requisição diretamente com fetch para ter mais controle
+      const response = await fetch(`${API_URL}/api/clients/${updatedClient.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend)
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao atualizar cliente');
+      }
+      
+      const result = await response.json();
+      console.log('Resposta da atualização:', result);
+      
+      // Atualizar a lista de clientes
+      loadClients();
+      
+      // Fechar o modal e limpar os estados
       setShowEditModal(false);
       setEditingClient(null);
+      setMessage('Cliente atualizado com sucesso!');
     } catch (error) {
       console.error('Erro ao atualizar cliente:', error);
-      setError(error);
+      alert(`Erro ao atualizar cliente: ${error.message}`);
     }
   };
 
@@ -506,15 +538,17 @@ export default function Gerenciar() {
               <h2 className="text-xl font-bold mb-4">Editar Cliente</h2>
               <form onSubmit={(e) => {
                 e.preventDefault();
-                // Implementar a lógica de atualização do cliente
+                // Capturar todos os dados do formulário
                 const updatedClient = {
-                  ...editingClient,
+                  id: editingClient.id, // Garantir que o ID seja incluído
                   name: e.target.name.value,
                   phone: e.target.phone.value,
                   level: e.target.level.value,
                   course: e.target.course.value,
                   arma: e.target.arma.value
                 };
+                
+                console.log('Dados capturados do formulário:', updatedClient);
                 
                 // Chamar a função de atualização
                 updateClient(updatedClient);
@@ -653,7 +687,12 @@ export default function Gerenciar() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setEditingClient(client);
+                      console.log('Cliente selecionado para edição:', client);
+                      console.log('ID do cliente:', client.id);
+                      setEditingClient({
+                        ...client,
+                        phone: client.wpp || '' // Mapear wpp para phone para o formulário
+                      });
                       setShowEditModal(true);
                     }}
                     className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 text-sm flex items-center"
