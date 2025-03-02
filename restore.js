@@ -32,17 +32,21 @@ const clientCourses = {
 
 async function restore() {
   try {
+    console.log('Iniciando restauração do banco de dados...');
+    
     // Ler o arquivo de backup
     const backupData = JSON.parse(fs.readFileSync('backup.json', 'utf8'));
-
+    
     // Restaurar clientes
+    console.log(`Restaurando ${backupData.clients.length} clientes...`);
     for (const client of backupData.clients) {
       await prisma.client.upsert({
         where: { id: client.id },
         update: {
           name: client.name,
           level: client.level,
-          course: clientCourses[client.id] || client.course,
+          course: client.course,
+          arma: client.arma || null, // Novo campo
           debit: client.debit,
           credit: client.credit,
           wpp: client.wpp
@@ -51,15 +55,17 @@ async function restore() {
           id: client.id,
           name: client.name,
           level: client.level,
-          course: clientCourses[client.id] || client.course,
+          course: client.course,
+          arma: client.arma || null, // Novo campo
           debit: client.debit,
           credit: client.credit,
           wpp: client.wpp
         }
       });
     }
-
+    
     // Restaurar produtos
+    console.log(`Restaurando ${backupData.products.length} produtos...`);
     for (const product of backupData.products) {
       await prisma.product.upsert({
         where: { id: product.id },
@@ -67,61 +73,67 @@ async function restore() {
           name: product.name,
           price: product.price,
           description: product.description,
-          stock: product.stock
+          stock: product.stock,
+          created_at: new Date(product.created_at),
+          updated_at: new Date(product.updated_at)
         },
         create: {
           id: product.id,
           name: product.name,
           price: product.price,
           description: product.description,
-          stock: product.stock
+          stock: product.stock,
+          created_at: new Date(product.created_at),
+          updated_at: new Date(product.updated_at)
         }
       });
     }
-
-    // Restaurar vendas
-    for (const sale of backupData.sales) {
+    
+    // Restaurar compras
+    console.log(`Restaurando ${backupData.purchases.length} compras...`);
+    for (const purchase of backupData.purchases) {
+      // Primeiro criar a compra
       await prisma.bought.upsert({
-        where: { id: sale.id },
+        where: { id: purchase.id },
         update: {
-          date_sell: sale.date_sell,
-          date_pay: sale.date_pay,
-          client_id: sale.client_id,
-          paid: sale.paid,
-          value: sale.value
+          date_sell: new Date(purchase.date_sell),
+          date_pay: new Date(purchase.date_pay),
+          client_id: purchase.client_id,
+          paid: purchase.paid,
+          value: purchase.value
         },
         create: {
-          id: sale.id,
-          date_sell: sale.date_sell,
-          date_pay: sale.date_pay,
-          client_id: sale.client_id,
-          paid: sale.paid,
-          value: sale.value
+          id: purchase.id,
+          date_sell: new Date(purchase.date_sell),
+          date_pay: new Date(purchase.date_pay),
+          client_id: purchase.client_id,
+          paid: purchase.paid,
+          value: purchase.value
         }
       });
-
-      // Restaurar produtos da venda
-      for (const product of sale.products) {
+      
+      // Depois restaurar os produtos da compra
+      for (const saleProduct of purchase.products) {
         await prisma.saleProduct.upsert({
-          where: { id: product.id },
+          where: { id: saleProduct.id },
           update: {
-            sale_id: product.sale_id,
-            product_id: product.product_id,
-            quantity: product.quantity,
-            price: product.price
+            sale_id: saleProduct.sale_id,
+            product_id: saleProduct.product_id,
+            quantity: saleProduct.quantity,
+            price: saleProduct.price
           },
           create: {
-            id: product.id,
-            sale_id: product.sale_id,
-            product_id: product.product_id,
-            quantity: product.quantity,
-            price: product.price
+            id: saleProduct.id,
+            sale_id: saleProduct.sale_id,
+            product_id: saleProduct.product_id,
+            quantity: saleProduct.quantity,
+            price: saleProduct.price
           }
         });
       }
     }
-
-    console.log('Dados restaurados com sucesso!');
+    
+    console.log('Restauração concluída com sucesso!');
   } catch (error) {
     console.error('Erro ao restaurar dados:', error);
   } finally {

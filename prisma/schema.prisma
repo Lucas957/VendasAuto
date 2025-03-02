@@ -15,6 +15,7 @@ model client {
   name   String
   level  Level    @default(SD)
   course Course?
+  arma   String?
   debit  Float    @default(0)
   credit Float    @default(0)
   wpp    String

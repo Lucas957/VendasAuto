@@ -40,6 +40,19 @@ const courseIcons = {
   padrao: "⭐", // Estrela - Padrão para quem não tem curso
 };
 
+// Ícones das armas militares
+const armaIcons = {
+  infantaria: "🔫", // Arma - Infantaria
+  cavalaria: "🐎", // Cavalo - Cavalaria
+  artilharia: "💣", // Bomba - Artilharia
+  engenharia: "🔧", // Ferramenta - Engenharia
+  comunicacoes: "📡", // Antena - Comunicações
+  intendencia: "📦", // Caixa - Intendência
+  material_belico: "🛠️", // Ferramentas - Material Bélico
+  saude: "⚕️", // Símbolo médico - Saúde
+  padrao: "🎖️", // Medalha militar - Padrão para quem não tem arma definida
+};
+
 export default function Home() {
   const [clients, setClients] = useState([]);
   const [filteredClients, setFilteredClients] = useState([]);
@@ -55,6 +68,7 @@ export default function Home() {
   const [passwordError, setPasswordError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(''); // Novo estado para o termo de pesquisa
 
   const levels = [
     { id: 'SD', name: 'Soldado' },
@@ -135,15 +149,39 @@ export default function Home() {
 
   const filterClientsByLevel = (level) => {
     setSelectedLevel(level);
-    if (level) {
-      const filtered = clients
-        .filter(client => client.level === level)
-        .sort((a, b) => a.name.localeCompare(b.name));
-      setFilteredClients(filtered);
-    } else {
-      setFilteredClients([...clients].sort((a, b) => a.name.localeCompare(b.name)));
-    }
+    filterClients(level, searchTerm);
     setSelectedClient(null);
+  };
+
+  // Nova função para filtrar clientes por nível e termo de pesquisa
+  const filterClients = (level, term) => {
+    let filtered = [...clients];
+    
+    // Filtrar por nível se especificado
+    if (level) {
+      filtered = filtered.filter(client => client.level === level);
+    }
+    
+    // Filtrar por termo de pesquisa se especificado
+    if (term) {
+      const searchTermLower = term.toLowerCase();
+      filtered = filtered.filter(client => 
+        client.name.toLowerCase().includes(searchTermLower) ||
+        (client.wpp && client.wpp.includes(term))
+      );
+    }
+    
+    // Ordenar por nome
+    filtered.sort((a, b) => a.name.localeCompare(b.name));
+    
+    setFilteredClients(filtered);
+  };
+
+  // Função para lidar com a mudança no campo de pesquisa
+  const handleSearchChange = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    filterClients(selectedLevel, term);
   };
 
   const selectClient = async (client) => {
@@ -362,6 +400,24 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Campo de Pesquisa */}
+            <div className="mb-4">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Pesquisar cliente por nome ou telefone..."
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
             {/* Lista de Clientes com Rolagem */}
             <div className={`flex-1 overflow-y-auto ${scrollbarStyle}`}>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-4">
@@ -373,11 +429,13 @@ export default function Home() {
                   >
                     <div className="flex flex-col items-center text-center">
                       <span className="text-3xl mb-2" title={client.course || 'Sem curso'}>
-                        {courseIcons[client.course] || courseIcons.padrao}
+                        {client.course && client.course !== '' ? courseIcons[client.course] || courseIcons.padrao : armaIcons[client.arma] || armaIcons.padrao}
                       </span>
                       <div>
                         <h3 className="font-semibold text-emerald-900">{client.name}</h3>
-                        <p className="text-sm text-emerald-600">Nível: {client.level}</p>
+                        <p className="text-sm text-emerald-600">
+                          {levels.find(l => l.id === client.level)?.name || 'Nível não definido'}
+                        </p>
                       </div>
                     </div>
                   </div>

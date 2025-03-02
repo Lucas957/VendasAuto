@@ -4,10 +4,164 @@
       "id": 1,
       "name": "Isaac",
       "level": "CB",
-      "course": null,
+      "course": "inteligente",
       "debit": 0,
       "credit": 0,
-      "wpp": "559285865052"
+      "wpp": "559285865052",
+      "bought": [
+        {
+          "id": 1,
+          "date_sell": "2025-02-28T22:19:53.293Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 2,
+          "date_sell": "2025-02-28T22:22:30.375Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 5
+        },
+        {
+          "id": 3,
+          "date_sell": "2025-02-28T22:24:26.902Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 5
+        },
+        {
+          "id": 4,
+          "date_sell": "2025-02-28T22:25:27.127Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 15
+        },
+        {
+          "id": 5,
+          "date_sell": "2025-02-28T22:26:08.125Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 8,
+          "date_sell": "2025-02-28T22:37:08.971Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 89
+        },
+        {
+          "id": 9,
+          "date_sell": "2025-02-28T23:53:50.213Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 23
+        },
+        {
+          "id": 10,
+          "date_sell": "2025-03-01T14:14:18.542Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 12
+        },
+        {
+          "id": 11,
+          "date_sell": "2025-03-01T15:01:50.115Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 24
+        },
+        {
+          "id": 12,
+          "date_sell": "2025-03-01T15:09:17.249Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 13,
+          "date_sell": "2025-03-01T15:11:37.121Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 16
+        },
+        {
+          "id": 14,
+          "date_sell": "2025-03-01T15:56:40.837Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 17,
+          "date_sell": "2025-03-01T19:48:22.527Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 18,
+          "date_sell": "2025-03-01T19:52:19.454Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 8
+        },
+        {
+          "id": 19,
+          "date_sell": "2025-03-01T20:51:49.496Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 20,
+          "date_sell": "2025-03-01T20:53:59.094Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 14
+        },
+        {
+          "id": 21,
+          "date_sell": "2025-03-01T20:58:04.462Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 22,
+          "date_sell": "2025-03-01T21:10:49.897Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 23,
+          "date_sell": "2025-03-02T13:17:50.060Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 1,
+          "paid": true,
+          "value": 10
+        }
+      ]
     },
     {
       "id": 2,
@@ -16,16 +170,36 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559288057455"
+      "wpp": "559288057455",
+      "bought": [
+        {
+          "id": 6,
+          "date_sell": "2025-02-28T22:27:35.427Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 2,
+          "paid": false,
+          "value": 10
+        }
+      ]
     },
     {
       "id": 3,
       "name": "Ribeiro",
       "level": "SGT",
-      "course": null,
+      "course": "inteligente",
       "debit": 0,
       "credit": 0,
-      "wpp": "559291412721"
+      "wpp": "559291412721",
+      "bought": [
+        {
+          "id": 7,
+          "date_sell": "2025-02-28T22:29:36.336Z",
+          "date_pay": "2025-03-01T04:00:00.000Z",
+          "client_id": 3,
+          "paid": false,
+          "value": 10
+        }
+      ]
     },
     {
       "id": 4,
@@ -34,7 +208,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559292287111"
+      "wpp": "559292287111",
+      "bought": []
     },
     {
       "id": 5,
@@ -43,7 +218,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559284701206"
+      "wpp": "559284701206",
+      "bought": []
     },
     {
       "id": 6,
@@ -52,7 +228,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "5521986881583"
+      "wpp": "5521986881583",
+      "bought": []
     },
     {
       "id": 7,
@@ -61,7 +238,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559282521550"
+      "wpp": "559282521550",
+      "bought": []
     },
     {
       "id": 8,
@@ -70,16 +248,18 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559293996041"
+      "wpp": "559293996041",
+      "bought": []
     },
     {
       "id": 9,
       "name": "Luz",
       "level": "CB",
-      "course": "mergulhador",
+      "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559281346324"
+      "wpp": "559281346324",
+      "bought": []
     },
     {
       "id": 10,
@@ -88,7 +268,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559285421283"
+      "wpp": "559285421283",
+      "bought": []
     },
     {
       "id": 11,
@@ -97,7 +278,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559285540913"
+      "wpp": "559285540913",
+      "bought": []
     },
     {
       "id": 12,
@@ -106,7 +288,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559285483792"
+      "wpp": "559285483792",
+      "bought": []
     },
     {
       "id": 13,
@@ -115,7 +298,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "556281394618"
+      "wpp": "556281394618",
+      "bought": []
     },
     {
       "id": 14,
@@ -124,7 +308,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "5521967869193"
+      "wpp": "5521967869193",
+      "bought": []
     },
     {
       "id": 15,
@@ -133,7 +318,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559282426898"
+      "wpp": "559282426898",
+      "bought": []
     },
     {
       "id": 16,
@@ -142,7 +328,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559885242175"
+      "wpp": "559885242175",
+      "bought": []
     },
     {
       "id": 17,
@@ -151,7 +338,8 @@
       "course": "mergulhador",
       "debit": 0,
       "credit": 0,
-      "wpp": "559284620178"
+      "wpp": "559284620178",
+      "bought": []
     },
     {
       "id": 18,
@@ -160,7 +348,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559292509981"
+      "wpp": "559292509981",
+      "bought": []
     },
     {
       "id": 19,
@@ -169,7 +358,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559292531405"
+      "wpp": "559292531405",
+      "bought": []
     },
     {
       "id": 20,
@@ -178,7 +368,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559284753225"
+      "wpp": "559284753225",
+      "bought": []
     },
     {
       "id": 21,
@@ -187,7 +378,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559294733631"
+      "wpp": "559294733631",
+      "bought": []
     },
     {
       "id": 22,
@@ -196,7 +388,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559292536361"
+      "wpp": "559292536361",
+      "bought": []
     },
     {
       "id": 23,
@@ -205,7 +398,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "554188433700"
+      "wpp": "554188433700",
+      "bought": []
     },
     {
       "id": 24,
@@ -214,7 +408,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559284140200"
+      "wpp": "559284140200",
+      "bought": []
     },
     {
       "id": 25,
@@ -223,7 +418,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559294690072"
+      "wpp": "559294690072",
+      "bought": []
     },
     {
       "id": 26,
@@ -232,7 +428,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559292857106"
+      "wpp": "559292857106",
+      "bought": []
     },
     {
       "id": 27,
@@ -241,7 +438,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559292277412"
+      "wpp": "559292277412",
+      "bought": []
     },
     {
       "id": 28,
@@ -250,7 +448,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559285102937"
+      "wpp": "559285102937",
+      "bought": []
     },
     {
       "id": 29,
@@ -259,7 +458,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559281416508"
+      "wpp": "559281416508",
+      "bought": []
     },
     {
       "id": 30,
@@ -268,16 +468,35 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559291927050"
+      "wpp": "559291927050",
+      "bought": []
     },
     {
       "id": 31,
       "name": "Leandro",
       "level": "SD",
       "course": null,
-      "debit": 0,
+      "debit": -29,
       "credit": 0,
-      "wpp": "559285872718"
+      "wpp": "559285872718",
+      "bought": [
+        {
+          "id": 33,
+          "date_sell": "2025-03-02T14:18:57.699Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 31,
+          "paid": true,
+          "value": 17
+        },
+        {
+          "id": 34,
+          "date_sell": "2025-03-02T14:23:06.369Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 31,
+          "paid": true,
+          "value": 12
+        }
+      ]
     },
     {
       "id": 32,
@@ -286,7 +505,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559295348741"
+      "wpp": "559295348741",
+      "bought": []
     },
     {
       "id": 33,
@@ -295,7 +515,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559292327163"
+      "wpp": "559292327163",
+      "bought": []
     },
     {
       "id": 34,
@@ -304,7 +525,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "5521973166443"
+      "wpp": "5521973166443",
+      "bought": []
     },
     {
       "id": 35,
@@ -313,7 +535,17 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559293874420"
+      "wpp": "559293874420",
+      "bought": [
+        {
+          "id": 25,
+          "date_sell": "2025-03-02T13:20:25.463Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 35,
+          "paid": true,
+          "value": 13
+        }
+      ]
     },
     {
       "id": 36,
@@ -322,7 +554,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559291668602"
+      "wpp": "559291668602",
+      "bought": []
     },
     {
       "id": 37,
@@ -331,7 +564,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559284459458"
+      "wpp": "559284459458",
+      "bought": []
     },
     {
       "id": 38,
@@ -340,7 +574,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559281155332"
+      "wpp": "559281155332",
+      "bought": []
     },
     {
       "id": 39,
@@ -349,7 +584,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559284079400"
+      "wpp": "559284079400",
+      "bought": []
     },
     {
       "id": 40,
@@ -358,7 +594,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559784222117"
+      "wpp": "559784222117",
+      "bought": []
     },
     {
       "id": 41,
@@ -367,7 +604,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559293780021"
+      "wpp": "559293780021",
+      "bought": []
     },
     {
       "id": 42,
@@ -376,7 +614,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "5521983393496"
+      "wpp": "5521983393496",
+      "bought": []
     },
     {
       "id": 43,
@@ -385,7 +624,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559294052511"
+      "wpp": "559294052511",
+      "bought": []
     },
     {
       "id": 44,
@@ -394,7 +634,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559288481238"
+      "wpp": "559288481238",
+      "bought": []
     },
     {
       "id": 45,
@@ -403,7 +644,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559292452813"
+      "wpp": "559292452813",
+      "bought": []
     },
     {
       "id": 46,
@@ -412,7 +654,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559284574343"
+      "wpp": "559284574343",
+      "bought": []
     },
     {
       "id": 47,
@@ -421,7 +664,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559291998755"
+      "wpp": "559291998755",
+      "bought": []
     },
     {
       "id": 48,
@@ -430,7 +674,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559286385805"
+      "wpp": "559286385805",
+      "bought": []
     },
     {
       "id": 49,
@@ -439,7 +684,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559293418594"
+      "wpp": "559293418594",
+      "bought": []
     },
     {
       "id": 50,
@@ -448,7 +694,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559286037643"
+      "wpp": "559286037643",
+      "bought": []
     },
     {
       "id": 51,
@@ -457,7 +704,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559285102963"
+      "wpp": "559285102963",
+      "bought": []
     },
     {
       "id": 52,
@@ -466,7 +714,17 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559293408007"
+      "wpp": "559293408007",
+      "bought": [
+        {
+          "id": 24,
+          "date_sell": "2025-03-02T13:19:21.107Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 52,
+          "paid": true,
+          "value": 19
+        }
+      ]
     },
     {
       "id": 53,
@@ -475,7 +733,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559285503799"
+      "wpp": "559285503799",
+      "bought": []
     },
     {
       "id": 54,
@@ -484,7 +743,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559292783899"
+      "wpp": "559292783899",
+      "bought": []
     },
     {
       "id": 55,
@@ -493,7 +753,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "5521991747278"
+      "wpp": "5521991747278",
+      "bought": []
     },
     {
       "id": 56,
@@ -502,7 +763,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559284938563"
+      "wpp": "559284938563",
+      "bought": []
     },
     {
       "id": 57,
@@ -511,7 +773,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559291339749"
+      "wpp": "559291339749",
+      "bought": []
     },
     {
       "id": 58,
@@ -520,7 +783,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "553299494908"
+      "wpp": "553299494908",
+      "bought": []
     },
     {
       "id": 59,
@@ -529,7 +793,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559296125618"
+      "wpp": "559296125618",
+      "bought": []
     },
     {
       "id": 60,
@@ -538,7 +803,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "5524981036469"
+      "wpp": "5524981036469",
+      "bought": []
     },
     {
       "id": 61,
@@ -547,7 +813,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "5521988164419"
+      "wpp": "5521988164419",
+      "bought": []
     },
     {
       "id": 62,
@@ -556,7 +823,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559293519533"
+      "wpp": "559293519533",
+      "bought": []
     },
     {
       "id": 63,
@@ -565,7 +833,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559284526882"
+      "wpp": "559284526882",
+      "bought": []
     },
     {
       "id": 64,
@@ -574,7 +843,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559284113723"
+      "wpp": "559284113723",
+      "bought": []
     },
     {
       "id": 65,
@@ -583,7 +853,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559284453219"
+      "wpp": "559284453219",
+      "bought": []
     },
     {
       "id": 66,
@@ -592,7 +863,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559285031750"
+      "wpp": "559285031750",
+      "bought": []
     },
     {
       "id": 67,
@@ -601,7 +873,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559282101083"
+      "wpp": "559282101083",
+      "bought": []
     },
     {
       "id": 68,
@@ -610,7 +883,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559299638762"
+      "wpp": "559299638762",
+      "bought": []
     },
     {
       "id": 69,
@@ -619,7 +893,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559294925181"
+      "wpp": "559294925181",
+      "bought": []
     },
     {
       "id": 70,
@@ -628,7 +903,8 @@
       "course": "comandos",
       "debit": 0,
       "credit": 0,
-      "wpp": "559291865469"
+      "wpp": "559291865469",
+      "bought": []
     },
     {
       "id": 71,
@@ -637,7 +913,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559293020598"
+      "wpp": "559293020598",
+      "bought": []
     },
     {
       "id": 72,
@@ -646,7 +923,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559293670209"
+      "wpp": "559293670209",
+      "bought": []
     },
     {
       "id": 73,
@@ -655,7 +933,25 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559284660293"
+      "wpp": "559284660293",
+      "bought": [
+        {
+          "id": 15,
+          "date_sell": "2025-03-01T15:59:56.689Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 73,
+          "paid": true,
+          "value": 19
+        },
+        {
+          "id": 16,
+          "date_sell": "2025-03-01T16:03:46.252Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 73,
+          "paid": true,
+          "value": 19
+        }
+      ]
     },
     {
       "id": 74,
@@ -664,7 +960,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "5521373761346"
+      "wpp": "5521373761346",
+      "bought": []
     },
     {
       "id": 75,
@@ -673,7 +970,8 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559288461987"
+      "wpp": "559288461987",
+      "bought": []
     },
     {
       "id": 76,
@@ -682,7 +980,8 @@
       "course": "paraquedista",
       "debit": 0,
       "credit": 0,
-      "wpp": "559285746534"
+      "wpp": "559285746534",
+      "bought": []
     },
     {
       "id": 77,
@@ -691,7 +990,85 @@
       "course": null,
       "debit": 0,
       "credit": 0,
-      "wpp": "559293727242"
+      "wpp": "559293727242",
+      "bought": []
+    },
+    {
+      "id": 78,
+      "name": "Daniel Rodrigues",
+      "level": "SGT",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559291841255",
+      "bought": [
+        {
+          "id": 26,
+          "date_sell": "2025-03-02T13:26:07.527Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 78,
+          "paid": true,
+          "value": 19
+        },
+        {
+          "id": 27,
+          "date_sell": "2025-03-02T13:27:54.464Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 78,
+          "paid": true,
+          "value": 12
+        },
+        {
+          "id": 28,
+          "date_sell": "2025-03-02T13:28:00.377Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 78,
+          "paid": true,
+          "value": 10
+        },
+        {
+          "id": 29,
+          "date_sell": "2025-03-02T13:39:41.560Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 78,
+          "paid": true,
+          "value": 12
+        },
+        {
+          "id": 30,
+          "date_sell": "2025-03-02T13:41:26.074Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 78,
+          "paid": true,
+          "value": 5
+        },
+        {
+          "id": 31,
+          "date_sell": "2025-03-02T13:41:42.052Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 78,
+          "paid": true,
+          "value": 19
+        },
+        {
+          "id": 32,
+          "date_sell": "2025-03-02T13:41:47.020Z",
+          "date_pay": "2025-04-01T04:00:00.000Z",
+          "client_id": 78,
+          "paid": true,
+          "value": 18
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "name": "larissa",
+      "level": "SD",
+      "course": null,
+      "debit": 0,
+      "credit": 0,
+      "wpp": "559285865052",
+      "bought": []
     }
   ],
   "products": [
@@ -700,27 +1077,27 @@
       "name": "Coca Lata",
       "price": 5,
       "description": "PG",
-      "stock": -17,
+      "stock": -45,
       "created_at": "2025-02-28T22:15:15.454Z",
-      "updated_at": "2025-03-01T15:09:17.286Z"
+      "updated_at": "2025-03-02T14:23:06.384Z"
     },
     {
       "id": 2,
       "name": "Salgado",
       "price": 7,
       "description": "PG",
-      "stock": -4,
+      "stock": -20,
       "created_at": "2025-02-28T22:36:23.152Z",
-      "updated_at": "2025-03-01T14:14:18.608Z"
+      "updated_at": "2025-03-02T14:23:06.394Z"
     },
     {
       "id": 3,
       "name": "Pizza",
       "price": 8,
       "description": "PG",
-      "stock": -4,
+      "stock": -7,
       "created_at": "2025-02-28T22:36:23.152Z",
-      "updated_at": "2025-03-01T15:11:37.162Z"
+      "updated_at": "2025-03-02T13:41:47.073Z"
     },
     {
       "id": 4,
@@ -729,7 +1106,7 @@
       "description": "PG",
       "stock": -2,
       "created_at": "2025-02-28T22:36:23.152Z",
-      "updated_at": "2025-02-28T22:37:09.039Z"
+      "updated_at": "2025-03-01T15:51:57.398Z"
     },
     {
       "id": 5,
@@ -738,7 +1115,7 @@
       "description": "PG",
       "stock": -3,
       "created_at": "2025-02-28T22:36:23.152Z",
-      "updated_at": "2025-03-01T15:01:50.162Z"
+      "updated_at": "2025-03-01T15:51:57.408Z"
     },
     {
       "id": 6,
@@ -747,7 +1124,7 @@
       "description": "PG",
       "stock": -5,
       "created_at": "2025-02-28T22:36:23.152Z",
-      "updated_at": "2025-03-01T15:01:50.183Z"
+      "updated_at": "2025-03-01T15:51:57.418Z"
     },
     {
       "id": 7,
@@ -756,16 +1133,16 @@
       "description": "PG",
       "stock": -2,
       "created_at": "2025-02-28T22:36:23.152Z",
-      "updated_at": "2025-02-28T23:53:50.254Z"
+      "updated_at": "2025-03-01T15:51:57.433Z"
     }
   ],
-  "sales": [
+  "purchases": [
     {
       "id": 1,
       "date_sell": "2025-02-28T22:19:53.293Z",
       "date_pay": "2025-03-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 10,
       "products": [
         {
@@ -782,7 +1159,7 @@
       "date_sell": "2025-02-28T22:22:30.375Z",
       "date_pay": "2025-03-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 5,
       "products": [
         {
@@ -799,7 +1176,7 @@
       "date_sell": "2025-02-28T22:24:26.902Z",
       "date_pay": "2025-03-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 5,
       "products": [
         {
@@ -816,7 +1193,7 @@
       "date_sell": "2025-02-28T22:25:27.127Z",
       "date_pay": "2025-03-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 15,
       "products": [
         {
@@ -833,7 +1210,7 @@
       "date_sell": "2025-02-28T22:26:08.125Z",
       "date_pay": "2025-03-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 10,
       "products": [
         {
@@ -884,7 +1261,7 @@
       "date_sell": "2025-02-28T22:37:08.971Z",
       "date_pay": "2025-03-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 89,
       "products": [
         {
@@ -943,7 +1320,7 @@
       "date_sell": "2025-02-28T23:53:50.213Z",
       "date_pay": "2025-03-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 23,
       "products": [
         {
@@ -967,7 +1344,7 @@
       "date_sell": "2025-03-01T14:14:18.542Z",
       "date_pay": "2025-04-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 12,
       "products": [
         {
@@ -991,7 +1368,7 @@
       "date_sell": "2025-03-01T15:01:50.115Z",
       "date_pay": "2025-04-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 24,
       "products": [
         {
@@ -1015,7 +1392,7 @@
       "date_sell": "2025-03-01T15:09:17.249Z",
       "date_pay": "2025-04-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 10,
       "products": [
         {
@@ -1032,7 +1409,7 @@
       "date_sell": "2025-03-01T15:11:37.121Z",
       "date_pay": "2025-04-01T04:00:00.000Z",
       "client_id": 1,
-      "paid": false,
+      "paid": true,
       "value": 16,
       "products": [
         {
@@ -1041,6 +1418,440 @@
           "product_id": 3,
           "quantity": 2,
           "price": 8
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "date_sell": "2025-03-01T15:56:40.837Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": true,
+      "value": 10,
+      "products": [
+        {
+          "id": 23,
+          "sale_id": 14,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "date_sell": "2025-03-01T15:59:56.689Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 73,
+      "paid": true,
+      "value": 19,
+      "products": [
+        {
+          "id": 24,
+          "sale_id": 15,
+          "product_id": 2,
+          "quantity": 2,
+          "price": 7
+        },
+        {
+          "id": 25,
+          "sale_id": 15,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "date_sell": "2025-03-01T16:03:46.252Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 73,
+      "paid": true,
+      "value": 19,
+      "products": [
+        {
+          "id": 26,
+          "sale_id": 16,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        },
+        {
+          "id": 27,
+          "sale_id": 16,
+          "product_id": 2,
+          "quantity": 2,
+          "price": 7
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "date_sell": "2025-03-01T19:48:22.527Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": true,
+      "value": 10,
+      "products": [
+        {
+          "id": 28,
+          "sale_id": 17,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "date_sell": "2025-03-01T19:52:19.454Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": true,
+      "value": 8,
+      "products": [
+        {
+          "id": 29,
+          "sale_id": 18,
+          "product_id": 3,
+          "quantity": 1,
+          "price": 8
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "date_sell": "2025-03-01T20:51:49.496Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": true,
+      "value": 10,
+      "products": [
+        {
+          "id": 30,
+          "sale_id": 19,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "date_sell": "2025-03-01T20:53:59.094Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": true,
+      "value": 14,
+      "products": [
+        {
+          "id": 31,
+          "sale_id": 20,
+          "product_id": 2,
+          "quantity": 2,
+          "price": 7
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "date_sell": "2025-03-01T20:58:04.462Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": true,
+      "value": 10,
+      "products": [
+        {
+          "id": 32,
+          "sale_id": 21,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "date_sell": "2025-03-01T21:10:49.897Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": true,
+      "value": 10,
+      "products": [
+        {
+          "id": 33,
+          "sale_id": 22,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "date_sell": "2025-03-02T13:17:50.060Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 1,
+      "paid": true,
+      "value": 10,
+      "products": [
+        {
+          "id": 34,
+          "sale_id": 23,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "date_sell": "2025-03-02T13:19:21.107Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 52,
+      "paid": true,
+      "value": 19,
+      "products": [
+        {
+          "id": 35,
+          "sale_id": 24,
+          "product_id": 2,
+          "quantity": 2,
+          "price": 7
+        },
+        {
+          "id": 36,
+          "sale_id": 24,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "date_sell": "2025-03-02T13:20:25.463Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 35,
+      "paid": true,
+      "value": 13,
+      "products": [
+        {
+          "id": 37,
+          "sale_id": 25,
+          "product_id": 3,
+          "quantity": 1,
+          "price": 8
+        },
+        {
+          "id": 38,
+          "sale_id": 25,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "date_sell": "2025-03-02T13:26:07.527Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 78,
+      "paid": true,
+      "value": 19,
+      "products": [
+        {
+          "id": 39,
+          "sale_id": 26,
+          "product_id": 2,
+          "quantity": 2,
+          "price": 7
+        },
+        {
+          "id": 40,
+          "sale_id": 26,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "date_sell": "2025-03-02T13:27:54.464Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 78,
+      "paid": true,
+      "value": 12,
+      "products": [
+        {
+          "id": 41,
+          "sale_id": 27,
+          "product_id": 2,
+          "quantity": 1,
+          "price": 7
+        },
+        {
+          "id": 42,
+          "sale_id": 27,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "date_sell": "2025-03-02T13:28:00.377Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 78,
+      "paid": true,
+      "value": 10,
+      "products": [
+        {
+          "id": 43,
+          "sale_id": 28,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "date_sell": "2025-03-02T13:39:41.560Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 78,
+      "paid": true,
+      "value": 12,
+      "products": [
+        {
+          "id": 44,
+          "sale_id": 29,
+          "product_id": 2,
+          "quantity": 1,
+          "price": 7
+        },
+        {
+          "id": 45,
+          "sale_id": 29,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "date_sell": "2025-03-02T13:41:26.074Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 78,
+      "paid": true,
+      "value": 5,
+      "products": [
+        {
+          "id": 46,
+          "sale_id": 30,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "date_sell": "2025-03-02T13:41:42.052Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 78,
+      "paid": true,
+      "value": 19,
+      "products": [
+        {
+          "id": 47,
+          "sale_id": 31,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
+        },
+        {
+          "id": 48,
+          "sale_id": 31,
+          "product_id": 2,
+          "quantity": 2,
+          "price": 7
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "date_sell": "2025-03-02T13:41:47.020Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 78,
+      "paid": true,
+      "value": 18,
+      "products": [
+        {
+          "id": 49,
+          "sale_id": 32,
+          "product_id": 3,
+          "quantity": 1,
+          "price": 8
+        },
+        {
+          "id": 50,
+          "sale_id": 32,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "date_sell": "2025-03-02T14:18:57.699Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 31,
+      "paid": true,
+      "value": 17,
+      "products": [
+        {
+          "id": 51,
+          "sale_id": 33,
+          "product_id": 2,
+          "quantity": 1,
+          "price": 7
+        },
+        {
+          "id": 52,
+          "sale_id": 33,
+          "product_id": 1,
+          "quantity": 2,
+          "price": 5
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "date_sell": "2025-03-02T14:23:06.369Z",
+      "date_pay": "2025-04-01T04:00:00.000Z",
+      "client_id": 31,
+      "paid": true,
+      "value": 12,
+      "products": [
+        {
+          "id": 53,
+          "sale_id": 34,
+          "product_id": 2,
+          "quantity": 1,
+          "price": 7
+        },
+        {
+          "id": 54,
+          "sale_id": 34,
+          "product_id": 1,
+          "quantity": 1,
+          "price": 5
         }
       ]
     }

@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 // Rotas de clientes
 router.post('/clients', async (req, res) => {
   try {
-    const { name, level, wpp, credit = 0, debit = 0, course = null } = req.body;
+    const { name, level, wpp, credit = 0, debit = 0, course = null, arma = null } = req.body;
     const client = await prisma.client.create({
       data: {
         name,
@@ -35,7 +35,8 @@ router.post('/clients', async (req, res) => {
         wpp,
         credit,
         debit,
-        course
+        course,
+        arma
       },
     });
     res.json(client);
@@ -54,6 +55,32 @@ router.get('/clients', async (req, res) => {
     res.json(clients);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+// Rota para atualizar um cliente
+router.put('/clients/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, level, wpp, course, arma } = req.body;
+    
+    const client = await prisma.client.update({
+      where: { id: parseInt(id) },
+      data: {
+        name,
+        level,
+        wpp,
+        course,
+        arma
+      },
+      include: {
+        bought: true
+      }
+    });
+    
+    res.json(client);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 });
 
