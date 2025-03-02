@@ -50,6 +50,18 @@ const armaIcons = {
   padrao: "🎖️", // Medalha militar - Padrão para quem não tem arma definida
 };
 
+// Hierarquia militar conforme definido no schema.prisma
+const patentesOptions = [
+  { value: "SD", label: "Soldado (SD)" },
+  { value: "CB", label: "Cabo (CB)" },
+  { value: "SGT", label: "Sargento (SGT)" },
+  { value: "STTEN", label: "Subtenente (STTEN)" },
+  { value: "TEN", label: "Tenente (TEN)" },
+  { value: "CAP", label: "Capitão (CAP)" },
+  { value: "MAJ", label: "Major (MAJ)" },
+  { value: "CEL", label: "Coronel (CEL)" }
+];
+
 // Opções de cursos militares conforme definido no schema.prisma
 const cursosOptions = [
   { value: "", label: "Nenhum" },
@@ -347,9 +359,11 @@ export default function Gerenciar() {
                     defaultValue={editingClient.level}
                     className="w-full p-2 border rounded"
                   >
-                    <option value="Básico">Básico</option>
-                    <option value="Intermediário">Intermediário</option>
-                    <option value="Avançado">Avançado</option>
+                    {patentesOptions.map(option => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="flex justify-end space-x-2">
