@@ -17,9 +17,7 @@ app.use('/api', routes);
 
 // Iniciar o servidor
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || '0.0.0.0'; // Escutar em todas as interfaces de rede
-
-app.listen(PORT, HOST, () => {
-  console.log(`Servidor rodando em http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor rodando em http://0.0.0.0:${PORT}`);
   console.log('==================================');
 }); 

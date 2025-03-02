@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
+import { getApiUrl, updateApiUrl, resetApiUrl } from '../config';
 
 export default function Diagnostico() {
   const [apiUrl, setApiUrl] = useState('');
@@ -18,33 +19,13 @@ export default function Diagnostico() {
     screenSize: 'desconhecido'
   });
   const [newApiUrl, setNewApiUrl] = useState('');
+  const [currentApiUrl, setCurrentApiUrl] = useState('');
+  const [ipAddress, setIpAddress] = useState('192.168.165.181');
   const [showApiUrlForm, setShowApiUrlForm] = useState(false);
 
-  // Verificar se a URL da API está usando localhost e corrigir
   useEffect(() => {
-    // Verificar se a URL atual está usando localhost
-    const currentApiUrl = localStorage.getItem('override_api_url');
-    if (currentApiUrl && currentApiUrl.includes('localhost')) {
-      console.log('Detectado localhost na URL da API, corrigindo...');
-      localStorage.setItem('override_api_url', 'http://192.168.15.6:3000');
-      // Recarregar a página para aplicar a nova URL
-      window.location.reload();
-    }
-  }, []);
-
-  useEffect(() => {
-    // Obter a URL da API do ambiente ou do localStorage (se o usuário tiver definido manualmente)
-    const savedApiUrl = typeof window !== 'undefined' ? localStorage.getItem('override_api_url') : null;
-    
-    // Definir URL padrão (com IP em vez de localhost)
-    let url = savedApiUrl || process.env.NEXT_PUBLIC_API_URL || 'http://192.168.15.6:3000';
-    
-    // Não permitir localhost (substituir por IP)
-    if (url.includes('localhost')) {
-      console.log('Substituindo localhost por IP da rede local');
-      url = 'http://192.168.15.6:3000';
-    }
-    
+    // Obter a URL da API usando a função centralizada
+    const url = getApiUrl();
     console.log('Diagnóstico usando API em:', url);
     setApiUrl(url);
     setNewApiUrl(url); // Preencher o campo de edição com a URL atual
@@ -315,15 +296,15 @@ export default function Diagnostico() {
     }
   };
 
-  const updateApiUrl = () => {
+  const handleUpdateApiUrl = () => {
     if (!newApiUrl) return;
     
     // Verificar se a URL é válida
     try {
       new URL(newApiUrl);
       
-      // Armazenar no localStorage para persistir entre recarregamentos
-      localStorage.setItem('override_api_url', newApiUrl);
+      // Usar a função centralizada para atualizar a URL
+      updateApiUrl(newApiUrl);
       
       // Atualizar o estado
       setApiUrl(newApiUrl);
@@ -337,14 +318,14 @@ export default function Diagnostico() {
       // Recarregar a página para aplicar as mudanças
       window.location.reload();
     } catch (e) {
-      alert('URL inválida. Por favor, insira uma URL completa (ex: http://192.168.15.6:3000)');
+      alert('URL inválida. Por favor, insira uma URL completa (ex: http://192.168.165.181:3000)');
     }
   };
 
-  const resetApiUrl = () => {
+  const handleResetApiUrl = () => {
     if (confirm('Tem certeza que deseja restaurar a URL da API para o padrão?')) {
-      // Remover do localStorage
-      localStorage.removeItem('override_api_url');
+      // Usar a função centralizada para resetar a URL
+      resetApiUrl();
       
       // Mostrar mensagem de sucesso
       alert('URL da API restaurada para o padrão. A página será recarregada.');
@@ -372,7 +353,7 @@ export default function Diagnostico() {
                   {showApiUrlForm ? 'Cancelar' : 'Alterar URL'}
                 </button>
                 <button 
-                  onClick={resetApiUrl}
+                  onClick={handleResetApiUrl}
                   className="text-red-500 text-sm underline"
                 >
                   Restaurar Padrão
@@ -392,7 +373,7 @@ export default function Diagnostico() {
                     className="flex-1 p-2 border rounded-l text-sm"
                   />
                   <button
-                    onClick={updateApiUrl}
+                    onClick={handleUpdateApiUrl}
                     className="bg-blue-500 text-white px-3 py-2 rounded-r text-sm"
                   >
                     Salvar
@@ -474,6 +455,24 @@ export default function Diagnostico() {
             </div>
             <p>Se aparecer uma resposta JSON, a conexão está funcionando.</p>
           </div>
+        </div>
+
+        <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-md">
+          <h2 className="text-xl font-semibold text-yellow-800 mb-4">Solução de Problemas de Conexão</h2>
+          <p className="mb-2">Se você estiver tendo problemas para conectar seu dispositivo móvel ao sistema, siga estas etapas:</p>
+          <ol className="list-decimal pl-5 space-y-2">
+            <li>Certifique-se de que seu dispositivo móvel está na mesma rede Wi-Fi que este computador.</li>
+            <li>Verifique se o servidor está rodando corretamente (deve mostrar "Conectado" acima).</li>
+            <li>
+              Tente acessar o sistema usando o IP da rede local: 
+              <span className="font-mono bg-gray-100 px-1 rounded">{ipAddress}:3000</span> no navegador do seu dispositivo móvel.
+            </li>
+            <li>Se estiver usando o IP correto e ainda não conseguir conectar, verifique as configurações de firewall do Windows.</li>
+            <li>
+              Você pode tentar atualizar a URL da API usando o formulário abaixo para usar o IP correto: 
+              <span className="font-mono bg-gray-100 px-1 rounded">http://{ipAddress}:3000</span>
+            </li>
+          </ol>
         </div>
 
         {showCopyText && (

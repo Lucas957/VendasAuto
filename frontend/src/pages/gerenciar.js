@@ -1,31 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-
-// Função para obter a URL da API (do localStorage ou das variáveis de ambiente)
-const getApiUrl = () => {
-  // Verificar se estamos no navegador
-  if (typeof window !== 'undefined') {
-    // Tentar obter do localStorage primeiro (se o usuário definiu manualmente)
-    const savedUrl = localStorage.getItem('override_api_url');
-    if (savedUrl) {
-      console.log('Usando URL da API do localStorage:', savedUrl);
-      return savedUrl;
-    }
-  }
-  
-  // Caso contrário, usar a variável de ambiente ou o fallback
-  const envUrl = process.env.NEXT_PUBLIC_API_URL || 'http://192.168.15.6:3000';
-  
-  // Não permitir localhost (substituir por IP)
-  if (envUrl.includes('localhost')) {
-    console.log('Substituindo localhost por IP da rede local');
-    return 'http://192.168.15.6:3000';
-  }
-  
-  console.log('Usando URL da API do .env:', envUrl);
-  return envUrl;
-};
+import { getApiUrl } from '../config';
 
 // Configuração da API usando variável de ambiente ou localStorage
 const API_URL = getApiUrl();
@@ -74,6 +50,8 @@ export default function Gerenciar() {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [editingClient, setEditingClient] = useState(null);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   // Verificar se a URL da API está usando localhost e corrigir
   useEffect(() => {
@@ -180,14 +158,23 @@ export default function Gerenciar() {
 
   const clearClientDebt = async (client) => {
     try {
-      const response = await axios.post(`${API_URL}/api/clients/${client.id}/clear-debt`);
-      console.log('Resposta ao zerar débito:', response.data);
-      alert('Débito zerado com sucesso!');
-      await loadClients();
+      await axios.post(`${API_URL}/api/clients/${client.id}/clear-debt`);
+      loadClients(); // Recarregar a lista após limpar o débito
     } catch (error) {
-      console.error('Erro detalhado ao zerar débito:', error.response?.data || error);
-      const errorMessage = error.response?.data?.error || error.response?.data?.details || 'Erro ao zerar débito';
-      alert(`Erro: ${errorMessage}`);
+      console.error('Erro ao limpar débito:', error);
+      setError(error);
+    }
+  };
+
+  const updateClient = async (updatedClient) => {
+    try {
+      await axios.put(`${API_URL}/api/clients/${updatedClient.id}`, updatedClient);
+      loadClients(); // Recarregar a lista após atualizar o cliente
+      setShowEditModal(false);
+      setEditingClient(null);
+    } catch (error) {
+      console.error('Erro ao atualizar cliente:', error);
+      setError(error);
     }
   };
 
@@ -262,6 +249,78 @@ export default function Gerenciar() {
           </a>
         </div>
         
+        {/* Modal de Edição */}
+        {showEditModal && editingClient && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-96 max-w-md">
+              <h2 className="text-xl font-bold mb-4">Editar Cliente</h2>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                // Implementar a lógica de atualização do cliente
+                const updatedClient = {
+                  ...editingClient,
+                  name: e.target.name.value,
+                  phone: e.target.phone.value,
+                  level: e.target.level.value
+                };
+                
+                // Chamar a função de atualização
+                updateClient(updatedClient);
+              }}>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                  <input 
+                    type="text" 
+                    name="name" 
+                    defaultValue={editingClient.name}
+                    className="w-full p-2 border rounded" 
+                    required 
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                  <input 
+                    type="text" 
+                    name="phone" 
+                    defaultValue={editingClient.phone || ''}
+                    className="w-full p-2 border rounded" 
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Nível</label>
+                  <select 
+                    name="level" 
+                    defaultValue={editingClient.level}
+                    className="w-full p-2 border rounded"
+                  >
+                    <option value="Básico">Básico</option>
+                    <option value="Intermediário">Intermediário</option>
+                    <option value="Avançado">Avançado</option>
+                  </select>
+                </div>
+                <div className="flex justify-end space-x-2">
+                  <button 
+                    type="button"
+                    onClick={() => {
+                      setShowEditModal(false);
+                      setEditingClient(null);
+                    }} 
+                    className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
+                  >
+                    Cancelar
+                  </button>
+                  <button 
+                    type="submit"
+                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  >
+                    Salvar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+        
         <input
           type="text"
           placeholder="Buscar cliente..."
@@ -273,13 +332,14 @@ export default function Gerenciar() {
           {filteredClients.map((client) => (
             <div
               key={client.id}
-              className={`p-4 border-b flex justify-between items-center cursor-pointer ${
+              className={`p-4 border-b flex flex-col items-center text-center cursor-pointer ${
                 selectedClient?.id === client.id ? 'bg-blue-50' : ''
               }`}
               onClick={() => handleClientClick(client)}
             >
-              <div>
-                <span className="font-medium">{courseIcons[client.level]} {client.name}</span>
+              <div className="mb-2">
+                <span className="text-2xl block mb-1">{courseIcons[client.level]}</span>
+                <span className="font-medium block">{client.name}</span>
                 <p className="text-sm text-gray-600">Total devido: R$ {
                   client.bought
                     .filter(purchase => !purchase.paid)
@@ -289,15 +349,25 @@ export default function Gerenciar() {
               </div>
               
               {selectedClient?.id === client.id && (
-                <div className="space-x-2">
+                <div className="flex flex-wrap justify-center gap-2 mt-2">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       sendWhatsAppMessage(client);
                     }}
-                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                    className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm flex items-center"
                   >
-                    Enviar Cobrança via WhatsApp
+                    <span className="mr-1">📱</span> Enviar WhatsApp
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setEditingClient(client);
+                      setShowEditModal(true);
+                    }}
+                    className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 text-sm flex items-center"
+                  >
+                    <span className="mr-1">✏️</span> Editar
                   </button>
                   <button
                     onClick={(e) => {
@@ -306,9 +376,9 @@ export default function Gerenciar() {
                         clearClientDebt(client);
                       }
                     }}
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                    className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm flex items-center"
                   >
-                    Zerar Débito
+                    <span className="mr-1">🗑️</span> Zerar Débito
                   </button>
                 </div>
               )}

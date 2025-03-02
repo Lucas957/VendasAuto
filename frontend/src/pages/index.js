@@ -1,31 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-
-// Função para obter a URL da API (do localStorage ou das variáveis de ambiente)
-const getApiUrl = () => {
-  // Verificar se estamos no navegador
-  if (typeof window !== 'undefined') {
-    // Tentar obter do localStorage primeiro (se o usuário definiu manualmente)
-    const savedUrl = localStorage.getItem('override_api_url');
-    if (savedUrl) {
-      console.log('Usando URL da API do localStorage:', savedUrl);
-      return savedUrl;
-    }
-  }
-  
-  // Caso contrário, usar a variável de ambiente ou o fallback
-  const envUrl = process.env.NEXT_PUBLIC_API_URL || 'http://192.168.15.6:3000';
-  
-  // Não permitir localhost (substituir por IP)
-  if (envUrl.includes('localhost')) {
-    console.log('Substituindo localhost por IP da rede local');
-    return 'http://192.168.15.6:3000';
-  }
-  
-  console.log('Usando URL da API do .env:', envUrl);
-  return envUrl;
-};
+import { getApiUrl } from '../config';
 
 // Configuração da API usando variável de ambiente ou localStorage
 const API_URL = getApiUrl();
@@ -395,8 +371,8 @@ export default function Home() {
                     onClick={() => selectClient(client)}
                     className="p-4 border rounded cursor-pointer hover:border-emerald-500 hover:bg-emerald-50 transition-colors bg-white shadow-sm"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl" title={client.course || 'Sem curso'}>
+                    <div className="flex flex-col items-center text-center">
+                      <span className="text-3xl mb-2" title={client.course || 'Sem curso'}>
                         {courseIcons[client.course] || courseIcons.padrao}
                       </span>
                       <div>
@@ -432,16 +408,18 @@ export default function Home() {
                   <div className="grid gap-4">
                     {products.map(product => (
                       <div key={product.id} className="p-4 border rounded bg-white shadow-sm hover:border-emerald-500 transition-colors">
-                        <h3 className="font-semibold text-emerald-900">{product.name}</h3>
-                        <p className="text-sm text-emerald-600">
-                          Preço: R$ {product.price.toFixed(2)} - Estoque: {product.stock}
-                        </p>
-                        <button
-                          onClick={() => addToCart(product)}
-                          className="mt-2 px-4 py-2 bg-emerald-500 text-white rounded hover:bg-emerald-600 transition-colors"
-                        >
-                          Adicionar ao Carrinho
-                        </button>
+                        <div className="flex flex-col items-center text-center">
+                          <h3 className="font-semibold text-emerald-900 mb-1">{product.name}</h3>
+                          <p className="text-sm text-emerald-600 mb-3">
+                            Preço: R$ {product.price.toFixed(2)} - Estoque: {product.stock}
+                          </p>
+                          <button
+                            onClick={() => addToCart(product)}
+                            className="mt-2 px-4 py-2 bg-emerald-500 text-white rounded hover:bg-emerald-600 transition-colors w-full max-w-xs"
+                          >
+                            Adicionar ao Carrinho
+                          </button>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -452,9 +430,10 @@ export default function Home() {
                   <h2 className="text-xl font-semibold mb-4 text-emerald-900">Carrinho</h2>
                   <div className={`flex-1 border rounded p-4 bg-white shadow-sm overflow-y-auto ${scrollbarStyle}`}>
                     {cart.map(item => (
-                      <div key={item.id} className="flex items-center gap-4 mb-4 p-2 border-b">
-                        <span className="flex-1 text-emerald-900">{item.name}</span>
-                        <div className="flex items-center gap-2">
+                      <div key={item.id} className="flex flex-col items-center text-center mb-4 p-3 border rounded bg-white shadow-sm">
+                        <span className="font-semibold text-emerald-900 mb-1">{item.name}</span>
+                        <span className="text-emerald-600 text-sm mb-2">Preço unitário: R$ {item.price.toFixed(2)}</span>
+                        <div className="flex items-center gap-2 mb-2">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
                             className="w-8 h-8 flex items-center justify-center bg-emerald-100 text-emerald-600 rounded-full hover:bg-emerald-200 transition-colors"
@@ -471,10 +450,10 @@ export default function Home() {
                             +
                           </button>
                         </div>
-                        <span className="w-24 text-right text-emerald-900">R$ {(item.price * item.quantity).toFixed(2)}</span>
+                        <span className="font-medium text-emerald-900 mb-2">Total: R$ {(item.price * item.quantity).toFixed(2)}</span>
                         <button
                           onClick={() => removeFromCart(item.id)}
-                          className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+                          className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors text-sm"
                         >
                           Remover
                         </button>

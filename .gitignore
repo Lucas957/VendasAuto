@@ -35,4 +35,7 @@ Thumbs.db
 
 # Arquivos do Puppeteer
 .wwebjs_auth/
-.wwebjs_cache/ 
+.wwebjs_cache/
+
+# Next.js
+.next/ 
